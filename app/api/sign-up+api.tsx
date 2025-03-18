@@ -5,9 +5,9 @@ import jwt from "jsonwebtoken";
 import bcryptjs from "bcryptjs";
 
 export async function POST(request: Request){
-    const {email, password} = await request.json();
+    const {email, password, firstName, lastName} = await request.json();
 
-    console.log(email, password);
+    console.log(email, password, firstName, lastName);
     // TODO validate email and password
     if (!email || !password){
         return Response.json({error: "Email and password are required"}, {status: 400});
@@ -35,6 +35,8 @@ export async function POST(request: Request){
     const newUser = await db.insert(users).values({
         email,
         password: await bcryptjs.hash(password, 10),
+        firstName,
+        lastName,
     }).returning();
 
     // 5. create jwt token

@@ -29,7 +29,7 @@
     },
     "plugins": [
       [
-        "expo-router", 
+        "expo-router",
         {
           "origin": "https://api.routes.expo.app"
         }
@@ -44,7 +44,8 @@
         }
       ],
       "expo-sqlite",
-      "expo-font"
+      "expo-font",
+      "expo-secure-store"
     ],
     "experiments": {
       "typedRoutes": true

@@ -7,11 +7,11 @@ export default function Layout(){
         }} />
         <Stack.Screen name="sign-in" options={{
             presentation: "card",
-            title: "Sign In",
+            headerTitle: "",
         }} />
         <Stack.Screen name="sign-up" options={{
             presentation: "card",
-            title: "Sign Up",
+            headerTitle: "",
         }} />
     </Stack>
 }
