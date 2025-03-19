@@ -4,7 +4,7 @@ import { AppButton } from "@/components/ui/AppButton";
 import { useState, useRef } from "react";
 import { router } from "expo-router";
 import { LinearGradient } from "expo-linear-gradient";
-import * as SecureStore from 'expo-secure-store';
+import { secureSave } from "@/utils/storage";
 
 export default function Page() {
     // Form fields
@@ -16,7 +16,7 @@ export default function Page() {
     const passwordAnim = useRef(new Animated.Value(0)).current;
 
     // Animation helper function
-    const animateField = (animValue, toValue) => {
+    const animateField = (animValue: Animated.Value, toValue: number) => {
         Animated.timing(animValue, {
             toValue,
             duration: 200,
@@ -50,8 +50,8 @@ export default function Page() {
             if (response.ok) {
                 const data = await response.json();
                 try {
-                    await SecureStore.setItemAsync("token", data.token);
-                    router.push("/dashboard");
+                    await secureSave("token", data.token);
+                    router.push("/dashboard/home");
                     Alert.alert("Success", "Sign in successful!");
                 } catch (error) {
                     console.error("Error saving token:", error);
