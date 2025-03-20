@@ -15,6 +15,13 @@
       "when": 1742326394763,
       "tag": "0001_bright_tusk",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1742505523436,
+      "tag": "0002_fearless_human_cannonball",
+      "breakpoints": true
     }
   ]
 }
